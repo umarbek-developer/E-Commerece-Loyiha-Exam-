@@ -6,11 +6,11 @@ from .models import Order, OrderItem
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user')
-    search_fields = ('user',)
+    list_display = ("id", "user")
+    search_fields = ("user",)
 
 
 @admin.register(OrderItem)
 class OrderItemAdmin(admin.ModelAdmin):
-    list_display = ('id', 'order')
-    search_fields = ('id', 'order')
+    list_display = ("id", "order")
+    search_fields = ("id", "order")

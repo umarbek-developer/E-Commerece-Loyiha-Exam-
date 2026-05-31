@@ -4,6 +4,7 @@ from api.serializers.cart_serializer import CartSerializer, CartItemSerializer
 
 # Create your views here.
 
+
 class CartViewSet(ModelViewSet):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer

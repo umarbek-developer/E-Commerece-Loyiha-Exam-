@@ -6,18 +6,29 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('payments', '0004_alter_payment_status'),
+        ("payments", "0004_alter_payment_status"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='payment',
-            name='id',
-            field=models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+            model_name="payment",
+            name="id",
+            field=models.BigAutoField(
+                auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+            ),
         ),
         migrations.AlterField(
-            model_name='payment',
-            name='status',
-            field=models.CharField(choices=[('PENDING', 'Pending'), ('PAID', 'Paid'), ('FAILED', 'Failed'), ('REFUNDED', 'Refunded')], default='PENDING', max_length=20),
+            model_name="payment",
+            name="status",
+            field=models.CharField(
+                choices=[
+                    ("PENDING", "Pending"),
+                    ("PAID", "Paid"),
+                    ("FAILED", "Failed"),
+                    ("REFUNDED", "Refunded"),
+                ],
+                default="PENDING",
+                max_length=20,
+            ),
         ),
     ]

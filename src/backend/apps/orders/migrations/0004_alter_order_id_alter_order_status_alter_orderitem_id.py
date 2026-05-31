@@ -6,23 +6,37 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('orders', '0003_alter_order_status_alter_order_total_amount_and_more'),
+        ("orders", "0003_alter_order_status_alter_order_total_amount_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='order',
-            name='id',
-            field=models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+            model_name="order",
+            name="id",
+            field=models.BigAutoField(
+                auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+            ),
         ),
         migrations.AlterField(
-            model_name='order',
-            name='status',
-            field=models.CharField(choices=[('PENDING', 'pending'), ('PROCESSING', 'Processing'), ('SHIPPED', 'Shipped'), ('DELIVERED', 'Delivered'), ('CANCELLED', 'Cancelled')], default='PENDING', max_length=20),
+            model_name="order",
+            name="status",
+            field=models.CharField(
+                choices=[
+                    ("PENDING", "pending"),
+                    ("PROCESSING", "Processing"),
+                    ("SHIPPED", "Shipped"),
+                    ("DELIVERED", "Delivered"),
+                    ("CANCELLED", "Cancelled"),
+                ],
+                default="PENDING",
+                max_length=20,
+            ),
         ),
         migrations.AlterField(
-            model_name='orderitem',
-            name='id',
-            field=models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID'),
+            model_name="orderitem",
+            name="id",
+            field=models.BigAutoField(
+                auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+            ),
         ),
     ]

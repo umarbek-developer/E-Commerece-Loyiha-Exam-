@@ -1,22 +1,44 @@
-from rest_framework.serializers import ModelSerializer
-from apps.products.models import Category, Product, Review 
+from rest_framework import serializers
+from apps.products.models import Category, Product, Review, Wishlist
 
 
-class CategorySerializer(ModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = "__all__"
+
+
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = "__all__"
+        read_only_fields = ["user"]
+
+
+class ProductSerializer(serializers.ModelSerializer):
+    average_rating = serializers.ReadOnlyField()
+    discounted_price = serializers.ReadOnlyField()
 
     class Meta:
-        model = Category  
-        fields = '__all__'
+        model = Product
+        fields = [
+            "id",
+            "name",
+            "description",
+            "price",
+            "discount",
+            "discounted_price",  # calculated field
+            "average_rating",  # calculated field
+            "category",
+            "image",
+            "stock_quantity",
+            "created_at",
+            "updated_at",
+        ]
 
-class ProductSerializer(ModelSerializer):
 
+class WishlistSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Product  
-        fields = '__all__'
-
-
-class ReviewSerializer(ModelSerializer):
-
-    class Meta:
-        model = Review  
-        fields = '__all__'
+        model = Wishlist
+        fields = "__all__"
+        read_only_fields = ["user"]

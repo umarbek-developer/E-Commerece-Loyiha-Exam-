@@ -3,10 +3,17 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from rest_framework_simplejwt.views import (  # noqa: F401
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 from apps.users.models import User, Address
-from api.serializers.users_serializer import UserSerializer, AddressSerializer, UserRegistrationSerializer
+from api.serializers.users_serializer import (
+    UserSerializer,
+    AddressSerializer,
+    UserRegistrationSerializer,
+)
 
 
 class UserRegistrationView(generics.CreateAPIView):
@@ -18,10 +25,13 @@ class UserRegistrationView(generics.CreateAPIView):
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
         refresh = RefreshToken.for_user(user)
-        return Response({
-            'refresh': str(refresh),
-            'access': str(refresh.access_token),
-        }, status=status.HTTP_201_CREATED)
+        return Response(
+            {
+                "refresh": str(refresh),
+                "access": str(refresh.access_token),
+            },
+            status=status.HTTP_201_CREATED,
+        )
 
 
 class UserViewSet(ModelViewSet):

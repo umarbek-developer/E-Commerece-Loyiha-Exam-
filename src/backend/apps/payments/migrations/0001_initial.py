@@ -9,19 +9,31 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('orders', '0001_initial'),
+        ("orders", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Payment',
+            name="Payment",
             fields=[
-                ('id', models.IntegerField(primary_key=True, serialize=False)),
-                ('amount', models.DecimalField(decimal_places=2, max_digits=5)),
-                ('status', models.CharField(choices=[('Active', 'Active'), ('Inactive', 'Inactive')], default='Active', max_length=20)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('order', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='orders.order')),
+                ("id", models.IntegerField(primary_key=True, serialize=False)),
+                ("amount", models.DecimalField(decimal_places=2, max_digits=5)),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[("Active", "Active"), ("Inactive", "Inactive")],
+                        default="Active",
+                        max_length=20,
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                (
+                    "order",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE, to="orders.order"
+                    ),
+                ),
             ],
         ),
     ]

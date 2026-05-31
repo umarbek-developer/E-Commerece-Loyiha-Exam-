@@ -8,32 +8,36 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='User',
+            name="User",
             fields=[
-                ('id', models.IntegerField(primary_key=True, serialize=False)),
-                ('username', models.CharField(max_length=255)),
-                ('email', models.EmailField(max_length=254)),
-                ('password', models.CharField()),
-                ('first_name', models.CharField(max_length=255)),
-                ('last_name', models.CharField(max_length=255)),
-                ('is_active', models.BooleanField(default=False)),
-                ('date_joined', models.DateTimeField(auto_now_add=True)),
+                ("id", models.IntegerField(primary_key=True, serialize=False)),
+                ("username", models.CharField(max_length=255)),
+                ("email", models.EmailField(max_length=254)),
+                ("password", models.CharField()),
+                ("first_name", models.CharField(max_length=255)),
+                ("last_name", models.CharField(max_length=255)),
+                ("is_active", models.BooleanField(default=False)),
+                ("date_joined", models.DateTimeField(auto_now_add=True)),
             ],
         ),
         migrations.CreateModel(
-            name='Address',
+            name="Address",
             fields=[
-                ('id', models.IntegerField(primary_key=True, serialize=False)),
-                ('address_line', models.CharField(max_length=255)),
-                ('city', models.CharField(max_length=255)),
-                ('postal_code', models.CharField(max_length=255)),
-                ('country', models.CharField(max_length=255)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='users.user')),
+                ("id", models.IntegerField(primary_key=True, serialize=False)),
+                ("address_line", models.CharField(max_length=255)),
+                ("city", models.CharField(max_length=255)),
+                ("postal_code", models.CharField(max_length=255)),
+                ("country", models.CharField(max_length=255)),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="users.user"
+                    ),
+                ),
             ],
         ),
     ]

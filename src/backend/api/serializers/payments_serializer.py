@@ -5,7 +5,5 @@ from apps.payments.models import Payment
 class PaymentSerializer(ModelSerializer):
 
     class Meta:
-        model = Payment  
-        fields = '__all__'
-
-
+        model = Payment
+        fields = "__all__"

@@ -2,17 +2,17 @@ from django.db import models
 from apps.users.models import User
 from apps.products.models import Product
 
-
 # Create your models here.
+
 
 class Order(models.Model):
     STATUS_CHOICES = [
-    ("PENDING", "pending"),
-    ("PROCESSING", "Processing"),
-    ("SHIPPED", "Shipped"),
-    ("DELIVERED", "Delivered"),
-    ("CANCELLED", "Cancelled"),
-]
+        ("PENDING", "pending"),
+        ("PROCESSING", "Processing"),
+        ("SHIPPED", "Shipped"),
+        ("DELIVERED", "Delivered"),
+        ("CANCELLED", "Cancelled"),
+    ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     total_amount = models.DecimalField(max_digits=10, decimal_places=2)

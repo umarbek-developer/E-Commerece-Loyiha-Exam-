@@ -6,11 +6,11 @@ from .models import User, Address
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('id', 'username')
-    search_fields = ('username',)
+    list_display = ("id", "username")
+    search_fields = ("username",)
 
 
 @admin.register(Address)
 class AddressAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user')
-    search_fields = ('user',)
+    list_display = ("id", "user")
+    search_fields = ("user",)

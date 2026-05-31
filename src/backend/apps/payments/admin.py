@@ -6,8 +6,5 @@ from .models import Payment
 
 @admin.register(Payment)
 class PaymentAdmin(admin.ModelAdmin):
-    list_display = ('id', 'order')
-    search_fields = ('id', 'order')
-
-
-
+    list_display = ("id", "order")
+    search_fields = ("id", "order")
