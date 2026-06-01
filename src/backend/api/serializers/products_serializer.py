@@ -36,6 +36,10 @@ class ProductSerializer(serializers.ModelSerializer):
             "updated_at",
         ]
 
+    def validate_product(self, value):
+        if value.stock_quantity <= 0:
+            raise serializers.ValidationError("This product is out of stock.")
+        return value
 
 class WishlistSerializer(serializers.ModelSerializer):
     class Meta:
